@@ -1,3 +1,13 @@
+nav {
+    background-color: lightblue;
+    text-align: center;
+}
+
 body {
-    background-color: beige;
+    background-color:beige;
+}
+
+/* h1 in index.html */
+.indexh1 {
+    font-family: 'Montserrat', sans-serif;
 }
