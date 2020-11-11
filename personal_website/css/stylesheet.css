@@ -16,13 +16,11 @@ body {
     display:grid;
     grid-template-columns: 25% auto;
     grid-auto-rows: 3fr;
-    background-color: cyan;
 }
 
 .class {
     grid-row: 1;
     grid-column: 1;
-    background-color: darkgoldenrod;
 }
 
 .desc {
