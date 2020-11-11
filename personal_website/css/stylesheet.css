@@ -11,3 +11,57 @@ body {
 .indexh1 {
     font-family: 'Montserrat', sans-serif;
 }
+
+.courses {
+    display:grid;
+    grid-template-columns: 25% auto;
+    grid-auto-rows: 3fr;
+    background-color: cyan;
+}
+
+.class {
+    grid-row: 1;
+    grid-column: 1;
+    background-color: darkgoldenrod;
+}
+
+.desc {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.semester {
+    grid-row: 3;
+    grid-column: 1;
+}
+
+#desc1 {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+@media screen and (max-width: 800px) {
+    .courses {
+        display:grid;
+        grid-template-columns: auto;
+        grid-auto-rows: 3fr;
+    }
+    
+    .class {
+        grid-row: 1;
+    }
+    
+    .desc {
+        grid-row: 3;
+        grid-column: 1;
+    }
+    
+    .semester {
+        grid-row: 2;
+    }
+    
+    #desc1 {
+        grid-row: 3;
+        grid-column: 1;
+    }
+}
