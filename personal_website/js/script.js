@@ -20,19 +20,35 @@ function scanArray(input, array){
 }
 
 
-function main(){
-    const courseList = [ 
-        {code: "ACIT 1620",  name: "Web Fundamental Technologies"},
-        {code: "ACIT 1630",  name: "Database Systems"},
-        {code: "ACIT 1515",  name: "Scripting for IT"},
-    ]
+function createCourseArray(){
+    let courseList = [];
+    let classes = document.querySelectorAll(".class > a");
+    let date = document.querySelectorAll(".semester");
+    let index = 0;
+    for (let entry of classes){
+        let newObj = {code: entry.innerHTML, date: date[index].innerHTML};
+//        console.log(newObj.code + newObj.date)
+        console.log(index);
+        courseList.push(newObj);
+        index++;
+    }
+    console.log(courseList[0].code + courseList[0].date + courseList[1].code + courseList[1].date)
+//    console.log(templist[0].code + templist[1].code)
+//    findCourse(courseList)
+}
+
+
+function findCourse(array){
     input = getInput();
-    if (!scanArray(input, courseList)){
+    if (!scanArray(input, array)){
         let newObj = {code: input, name: null};
         console.log("New object successfully logged");
         courseList.push(newObj);
     }
 }
 
+function main(){
+    createCourseArray()
+}
 
 main()
