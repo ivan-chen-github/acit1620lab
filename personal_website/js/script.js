@@ -3,7 +3,7 @@
 
 function getInput(){
     let input = prompt("Please enter a 4-digit number: ");
-    while ((!Number(input)) || (input.length != 4)){
+    while ((!Number(input) && input != ("0000")) || (input.length != 4)){
         input = prompt("Invalid input. Please enter a 4-digit number: ");
     }
     return input;
