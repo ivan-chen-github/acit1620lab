@@ -13,7 +13,6 @@ function getInput(){
 function scanArray(input, array){
     for (let object of array){
         if (object.code.includes(input)){
-            console.log(`Yes I am taking the course: ` + object.code + ` - `+ object.name);
             return true;
         }
     }
@@ -21,29 +20,39 @@ function scanArray(input, array){
 
 
 function createCourseArray(){
-    let courseList = [];
-    let classes = document.querySelectorAll(".class > a");
-    let date = document.querySelectorAll(".semester");
+    const courseList = [];
+    const classes = document.querySelectorAll(".class > a");
+    const date = document.querySelectorAll(".semester");
     let index = 0;
     for (let entry of classes){
         let newObj = {code: entry.innerHTML, date: date[index].innerHTML};
-//        console.log(newObj.code + newObj.date)
         console.log(index);
         courseList.push(newObj);
         index++;
     }
-    console.log(courseList[0].code + courseList[0].date + courseList[1].code + courseList[1].date)
-//    console.log(templist[0].code + templist[1].code)
-//    findCourse(courseList)
+    index = 0
+    for (let entry of courseList){
+        console.log(courseList[index].code + courseList[index].date);
+        index++;
+    }
+    findCourse(courseList)
 }
 
 
-function findCourse(array){
+function findCourse(courseList){
     input = getInput();
-    if (!scanArray(input, array)){
-        let newObj = {code: input, name: null};
+    if (scanArray(input, courseList)){
+        console.log("This means input was in array");
+        document.getElementById(input).style.backgroundColor = "green";
+    }
+    else {
         console.log("New object successfully logged");
-        courseList.push(newObj);
+        console.log(input)
+        const newCourse = document.querySelector("#ACIT1515");
+        const newCode = document.createTextNode(input);
+        newCourse.append(newCode)
+        const newDesc = document.createTextNode("N/A");
+        const newDate = document.createTextNode("Fall 2020")
     }
 }
 
