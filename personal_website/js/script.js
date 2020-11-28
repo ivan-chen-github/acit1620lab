@@ -42,17 +42,32 @@ function createCourseArray(){
 function findCourse(courseList){
     input = getInput();
     if (scanArray(input, courseList)){
-        console.log("This means input was in array");
-        document.getElementById(input).style.backgroundColor = "green";
+        console.log("This means input was in array")
+        document.getElementById("ACIT" + input).style.backgroundColor = "green";
     }
     else {
+        var tester = document.querySelector("#desc1").innerHTML
+        console.log(tester)
         console.log("New object successfully logged");
         console.log(input)
-        const newCourse = document.querySelector("#ACIT1515");
-        const newCode = document.createTextNode(input);
-        newCourse.append(newCode)
-        const newDesc = document.createTextNode("N/A");
-        const newDate = document.createTextNode("Fall 2020")
+        
+        var newCourse = document.createElement("div");
+        newCourse.classList.add("courses")
+        var newCode = document.createElement("div");
+        newCode.innerHTML = input;
+        newCode.classList.add("class")
+        var newDesc = document.createElement("div");
+        newDesc.innerHTML = "N/A";
+        newDesc.classList.add("desc")
+        var newDate = document.createElement("div");
+        newDate.innerHTML = "Fall 2020";
+        newDate.classList.add("semester")
+
+        newCourse.appendChild(newCode)
+        newCourse.appendChild(newDesc)
+        newCourse.appendChild(newDate)
+
+        document.querySelector("#ACIT1515").after(newCourse)
     }
 }
 
