@@ -50,16 +50,18 @@ function findCourse(courseList){
         console.log(tester)
         console.log("New object successfully logged");
         console.log(input)
-        
-        var newCourse = document.createElement("div");
+        const linebreak = document.createElement("br");
+        const horizrule = document.createElement("hr");
+        let newestCourse = document.querySelector("#newestCourse")
+        let newCourse = document.createElement("div");
         newCourse.classList.add("courses")
-        var newCode = document.createElement("div");
+        let newCode = document.createElement("div");
         newCode.innerHTML = input;
         newCode.classList.add("class")
-        var newDesc = document.createElement("div");
+        let newDesc = document.createElement("div");
         newDesc.innerHTML = "N/A";
         newDesc.classList.add("desc")
-        var newDate = document.createElement("div");
+        let newDate = document.createElement("div");
         newDate.innerHTML = "Fall 2020";
         newDate.classList.add("semester")
 
@@ -67,7 +69,13 @@ function findCourse(courseList){
         newCourse.appendChild(newDesc)
         newCourse.appendChild(newDate)
 
-        document.querySelector("#ACIT1515").after(newCourse)
+        newestCourse.after(newCourse)
+        newestCourse.after(horizrule)
+        newestCourse.after(linebreak)
+
+        newestCourse.removeAttribute("id")
+        newCourse.id = "newestCourse"
+
     }
 }
 
