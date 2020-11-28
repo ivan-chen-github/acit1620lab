@@ -26,13 +26,7 @@ function createCourseArray(){
     let index = 0;
     for (let entry of classes){
         let newObj = {code: entry.innerHTML, date: date[index].innerHTML};
-        console.log(index);
         courseList.push(newObj);
-        index++;
-    }
-    index = 0
-    for (let entry of courseList){
-        console.log(courseList[index].code + courseList[index].date);
         index++;
     }
     findCourse(courseList)
@@ -42,45 +36,42 @@ function createCourseArray(){
 function findCourse(courseList){
     input = getInput();
     if (scanArray(input, courseList)){
-        console.log("This means input was in array")
-        document.getElementById("ACIT" + input).style.backgroundColor = "green";
+        document.querySelector(`[class$="${input}"]`).style.backgroundColor = "green";
     }
     else {
-        var tester = document.querySelector("#desc1").innerHTML
-        console.log(tester)
-        console.log("New object successfully logged");
-        console.log(input)
         const linebreak = document.createElement("br");
         const horizrule = document.createElement("hr");
         let newestCourse = document.querySelector("#newestCourse")
-        let newCourse = document.createElement("div");
+        let newCourse = document.createElement("div");  //Create container
         newCourse.classList.add("courses")
-        let newCode = document.createElement("div");
+        newCourse.classList.add(input)
+        let newCode = document.createElement("div");    //Create course code div
         newCode.innerHTML = input;
         newCode.classList.add("class")
-        let newDesc = document.createElement("div");
+        let newDesc = document.createElement("div");    //Create description div
         newDesc.innerHTML = "N/A";
         newDesc.classList.add("desc")
-        let newDate = document.createElement("div");
+        let newDate = document.createElement("div");    //Create date div
         newDate.innerHTML = "Fall 2020";
         newDate.classList.add("semester")
 
-        newCourse.appendChild(newCode)
+        newCourse.appendChild(newCode)                  //Puts divs into container
         newCourse.appendChild(newDesc)
         newCourse.appendChild(newDate)
 
-        newestCourse.after(newCourse)
+        newestCourse.after(newCourse)                   //Puts new container after other containers
         newestCourse.after(horizrule)
         newestCourse.after(linebreak)
 
-        newestCourse.removeAttribute("id")
+        newestCourse.removeAttribute("id")              //Reassigns newestCourse id to new addition
         newCourse.id = "newestCourse"
-
     }
 }
+
 
 function main(){
     createCourseArray()
 }
+
 
 main()
